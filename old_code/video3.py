@@ -11,6 +11,8 @@ ret, frame = cap.read()
 # Modify frame
 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 frame = cv2.medianBlur(frame,7)
+ret,frame = cv2.threshold(frame,235,255,cv2.THRESH_TRUNC)
+
 
 # Find Circles
 circles = cv2.HoughCircles(frame, cv.CV_HOUGH_GRADIENT, 1, 30,
